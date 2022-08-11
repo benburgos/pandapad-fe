@@ -1,5 +1,5 @@
 import './App.css';
-import LoginButton from './components/login';
+import LoginButton from './components/button/login';
 import LogoutButton from './components/logout';
 import Profile from './components/profile';
 
