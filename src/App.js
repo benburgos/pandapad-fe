@@ -7,10 +7,7 @@ import Profile from './components/profile';
 function App() {
   return (
     <div className="App">
-      <h1>Hello world!</h1>
-      <LoginButton /> <LogoutButton />
-      <Profile />
-      <Main />
+      
     </div>
   );
 }
