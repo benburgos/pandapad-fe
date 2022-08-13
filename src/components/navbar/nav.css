@@ -1,0 +1,22 @@
+.navbar {
+	height: 100%;
+	width: 200px; 
+	position: fixed;
+	left: 0;
+	background-color: #344E41;
+	padding-top: 20px;
+}
+
+.navbar a {
+	text-decoration: none;
+	padding: 10px;
+	margin: 20px;
+	color: #DAD7CD;
+	display: block;
+	text-align: justify;
+}
+
+.navbar img {
+	height: 10%;
+    margin-right: 5px;
+}
