@@ -1,6 +1,10 @@
+html {
+  background-color: #dad7cd;
+}
+
 .App {
-	text-align: center;
-	height: 100%;
-	font-family: 'Thasadith', sans-serif;
-	margin-top: 0;
+  text-align: center;
+  height: 100%;
+  font-family: 'Thasadith', sans-serif;
+  margin-top: 0;
 }

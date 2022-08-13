@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCommentDots
-} from '@fortawesome/free-solid-svg-icons';
+import { faCommentDots, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import './conversation.css';
 
 export default function Conversation() {
@@ -15,38 +13,52 @@ export default function Conversation() {
       <hr />
 
       <div className="conversation-list">
-        <div className='conversation-list-card'>
-            <ul>
-            <div className="conversation-list-user">
-                <li>Icon</li>
-                <li>Name</li>
-            </div>
+        <div className="conversation-list-card">
+          <div className="conversation-list-user">
+            <span>
+              <FontAwesomeIcon icon={faUserCircle} />
+            </span>
+            <span>Jeff Goldblum</span>
+          </div>
 
-            <div className="conversation-list-comment">
-                <Link to='/unavailable'>
-                    <li>My stuff is on fire man!</li>
-                    <li><FontAwesomeIcon icon={faCommentDots} /></li>
-                </Link>
-            </div>
-            </ul>
+          <div className="conversation-list-subject">
+            <Link to="/unavailable">
+              <span>My stuff is on fire man!</span>
+            </Link>
+          </div>
+
+          <div className="conversation-list-icon">
+            <Link to="/unavailable">
+              <span>
+                <FontAwesomeIcon icon={faCommentDots} />
+              </span>
+            </Link>
+          </div>
         </div>
-        <div className='conversation-list-card'>
-            <ul>
-            <div className="conversation-list-user">
-                <li>Icon</li>
-                <li>Name</li>
-            </div>
 
-            <div className="conversation-list-comment">
-                <Link to='/unavailable'>
-                    <li>My stuff is on fire man!</li>
-                    <li><FontAwesomeIcon icon={faCommentDots} /></li>
-                </Link>
-            </div>
-            </ul>
+        <div className="conversation-list-card">
+          <div className="conversation-list-user">
+            <span>
+              <FontAwesomeIcon icon={faUserCircle} />
+            </span>
+            <span>Jeff Goldblum</span>
+          </div>
+
+          <div className="conversation-list-subject">
+            <Link to="/unavailable">
+              <span>My stuff is on fire man!</span>
+            </Link>
+          </div>
+
+          <div className="conversation-list-icon">
+            <Link to="/unavailable">
+              <span>
+                <FontAwesomeIcon icon={faCommentDots} />
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
-
     </div>
   );
 }
