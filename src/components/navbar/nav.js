@@ -19,7 +19,7 @@ export default function Navbar() {
       <Link to='/unavailable'>
       <FontAwesomeIcon icon={faEnvelope} flip="horizontal" /> Mail
       </Link>
-      <Link to='/conversation'>
+      <Link to='/'>
       <FontAwesomeIcon icon={faComment} flip="horizontal" /> Conversations
       </Link>
       <Link to='/unavailable'>

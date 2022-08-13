@@ -1,9 +1,6 @@
-* {
-	box-sizing: border-box;
-}
-
 .App {
 	text-align: center;
 	height: 100%;
 	font-family: 'Thasadith', sans-serif;
+	margin-top: 0;
 }
