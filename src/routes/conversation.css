@@ -1,9 +1,19 @@
 .conversation-box {
-    text-align: left;
-    margin-left: 215px;
+  text-align: left;
+  margin-left: 215px;
 }
 
 .conversation-box hr {
-    width: 98%;
-    margin-right: 20px;
+  width: 98%;
+  margin-right: 20px;
+}
+
+.conversation-list {
+  width: 98%;
+  margin-top: 5px;
+}
+
+.conversation-list-card {
+  border: 1px solid black;
+  margin-top: 5px;
 }
