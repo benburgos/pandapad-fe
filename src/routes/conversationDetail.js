@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 export default function ConversationDetail() {
-  const [convo, setConvo] = useState([]);
+  const [convo, setConvo] = useState();
   const { id } = useParams();
 
   useEffect(() => {
@@ -15,7 +15,9 @@ export default function ConversationDetail() {
       setConvo(data);
     }
     getConvo();
-  }, [id]);
+  }, []);
+
+  console.log(convo)
 
   if (convo) {
     return (
