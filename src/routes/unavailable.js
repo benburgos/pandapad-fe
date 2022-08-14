@@ -1,3 +1,3 @@
 export default function Unavailable() {
-    return <h1>This is currently under construction!</h1>
+    return <h1>This feature is currently unavailable.</h1>
 }
