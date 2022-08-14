@@ -1,0 +1,44 @@
+.conversation-detail-box {
+  text-align: left;
+  margin-left: 215px;
+  background-color: #dad7cd;
+}
+
+.conversation-detail-box hr {
+  width: 98%;
+  margin-right: 20px;
+}
+
+.conversation-detail-comments-box {
+  width: 98%;
+  margin-top: 5px;
+}
+
+.conversation-detail-comments-card {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  height: 60px;
+  margin-top: 5px;
+}
+
+.conversation-detail-user-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 12%;
+  max-width: 12%;
+}
+
+.conversation-detail-user-icon svg {
+  font-size: 30px;
+}
+
+.conversation-detail-comment-text {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
