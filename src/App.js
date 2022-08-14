@@ -11,6 +11,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Conversation />} />
+        <Route path="/conversation" element={<Conversation />} />
         <Route path="/unavailable" element={<Unavailable />} />
         <Route path="/conversation/detail/:id" element={<ConversationDetail />} />
       </Routes>
