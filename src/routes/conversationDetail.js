@@ -48,7 +48,7 @@ export default function ConversationDetail() {
         {/* Fourth Comment */}
         <div className="conversation-detail-comments-card">
           <div className="conversation-detail-user-icon">
-            <FontAwesomeIcon icon={faUserCircle} />
+            <FontAwesomeIcon icon={faUserCircle} /> Agent
           </div>
           <div className="conversation-detail-comment-text">
             <p>{jeffsum(4, 'sentences')}</p>
