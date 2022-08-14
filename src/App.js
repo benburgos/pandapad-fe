@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Conversation />} />
         <Route path="/unavailable" element={<Unavailable />} />
-        <Route path="/conversation/detail" element={<ConversationDetail />} />
+        <Route path="/conversation/detail/:id" element={<ConversationDetail />} />
       </Routes>
     </div>
   );

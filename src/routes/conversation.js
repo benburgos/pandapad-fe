@@ -41,7 +41,7 @@ export default function Conversation() {
               </div>
 
               <div className="conversation-list-subject">
-                <Link to="/conversation/detail">
+                <Link to={`/conversation/detail/${convo._id}`}>
                   <span>{convo.body}</span>
                 </Link>
               </div>
