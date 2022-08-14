@@ -8,6 +8,7 @@ export default function ConversationDetail() {
   const [convo, setConvo] = useState();
   const { id } = useParams();
 
+  
   useEffect(() => {
     async function getConvo() {
       const response = await fetch(`http://localhost:8000/tickets/${id}`);
@@ -15,9 +16,9 @@ export default function ConversationDetail() {
       setConvo(data);
     }
     getConvo();
-  }, []);
-
-  console.log(convo)
+  }, 
+  // eslint-disable-next-line
+  []);
 
   if (convo) {
     return (
@@ -36,7 +37,7 @@ export default function ConversationDetail() {
         <div className="conversation-detail-comments-box">
           {convo.comments.map((e) => {
             return (
-              <div className="conversation-detail-comments-card">
+              <div className="conversation-detail-comments-card" key={e._id}>
                 <div className="conversation-detail-user-icon">
                   <FontAwesomeIcon icon={faUserCircle} /> {e.from}
                 </div>
