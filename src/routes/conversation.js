@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCommentDots, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCommentDots, faUserCircle, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import './conversation.css';
 
 export default function Conversation() {
@@ -8,6 +8,7 @@ export default function Conversation() {
     <div className="conversation-box">
       <div className="header">
         <h2>Conversation List</h2>
+        <FontAwesomeIcon icon={faPlusSquare} />
       </div>
 
       <hr />

@@ -4,6 +4,17 @@
   background-color: #DAD7CD;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header svg {
+  font-size: 30px;
+  margin-right: 4%;
+}
+
 .conversation-box hr {
   width: 98%;
   margin-right: 20px;
