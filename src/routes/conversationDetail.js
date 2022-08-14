@@ -21,19 +21,21 @@ export default function ConversationDetail() {
       getConvo();
     },
     // eslint-disable-next-line
-    []
+    [body]
   );
 
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch(`localhost:8000/tickets/edit?ticketId=${id}`, {
+      let res = await fetch(`http://localhost:8000/tickets/edit?ticketId=${id}`, {
         method: 'PUT',
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
           from: user.name,
           body: body,
         }),
       });
+      console.log(res.json())
       if (res.status === 200) {
         setBody('');
       }
@@ -71,16 +73,23 @@ export default function ConversationDetail() {
           })}
         </div>
 
-        <div className="conversation-detail-comment-add">
-          <div className="conversation-detail-comment-add-textarea">
-            <h3>Add Comment</h3>
-            <input type="text"></input>
+        <form onSubmit={handleSubmit}>
+          <div className="conversation-detail-comment-add">
+            <div className="conversation-detail-comment-add-textarea">
+              <h3>Add Comment</h3>
+              <input
+                type="text"
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
+              />
+            </div>
+            <div className="conversation-detail-comment-add-icon">
+              <button type="submit">
+                <FontAwesomeIcon icon={faPaperPlane} />
+              </button>
+            </div>
           </div>
-          <div className="conversation-detail-comment-add-icon">
-            <FontAwesomeIcon icon={faPaperPlane} />
-          </div>
-        </div>
-
+        </form>
       </div>
     );
   } else {
