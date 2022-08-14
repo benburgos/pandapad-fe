@@ -22,3 +22,12 @@
 	height: 10%;
     margin-right: 5px;
 }
+
+.active-product {
+	background-color: #DAD7CD;
+	color: black;
+}
+
+.active-product a {
+	color: black;
+}

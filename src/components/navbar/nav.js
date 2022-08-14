@@ -19,9 +19,11 @@ export default function Navbar() {
       <Link to='/unavailable'>
       <FontAwesomeIcon icon={faEnvelope} flip="horizontal" /> Mail
       </Link>
+      <div className='active-product'>
       <Link to='/'>
       <FontAwesomeIcon icon={faComment} flip="horizontal" /> Conversations
       </Link>
+      </div>
       <Link to='/unavailable'>
       <FontAwesomeIcon icon={faIdCard} flip="horizontal" /> Profile
       </Link>
