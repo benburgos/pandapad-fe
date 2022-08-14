@@ -1,70 +1,63 @@
 import './conversationDetail.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-import jeffsum from 'jeffsum';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function ConversationDetail() {
-  return (
-    <div className="conversation-detail-box">
-      <div className="conversation-detail-header">
-        <div className="conversation-detail-user">
-          <h1>Jeff Goldblum</h1>
-        </div>
-        <div className="conversation-detail-subject">
-          <span>My stuff is on fire man!</span>
-        </div>
-      </div>
+  const [convo, setConvo] = useState([]);
+  const { id } = useParams();
 
-      <hr />
+  useEffect(() => {
+    async function getConvo() {
+      const response = await fetch(`http://localhost:8000/tickets/${id}`);
+      const data = await response.json();
+      setConvo(data);
+    }
+    getConvo();
+  }, [id]);
 
-      <div className="conversation-detail-comments-box">
-        {/* First Comment */}
-        <div className="conversation-detail-comments-card">
-          <div className="conversation-detail-user-icon">
-            <FontAwesomeIcon icon={faUserCircle} /> Jeff Goldblum
+  if (convo) {
+    return (
+      <div className="conversation-detail-box">
+        <div className="conversation-detail-header">
+          <div className="conversation-detail-user">
+            <h1>{convo.from}</h1>
           </div>
-          <div className="conversation-detail-comment-text">
-            <p>{jeffsum(4, 'sentences')}</p>
-          </div>
-        </div>
-        {/* Second Comment */}
-        <div className="conversation-detail-comments-card">
-          <div className="conversation-detail-user-icon">
-            <FontAwesomeIcon icon={faUserCircle} /> Agent
-          </div>
-          <div className="conversation-detail-comment-text">
-            <p>{jeffsum(4, 'sentences')}</p>
+          <div className="conversation-detail-subject">
+            <span>{convo.body}</span>
           </div>
         </div>
-        {/* Third Comment */}
-        <div className="conversation-detail-comments-card">
-          <div className="conversation-detail-user-icon">
-            <FontAwesomeIcon icon={faUserCircle} /> Jeff Goldblum
-          </div>
-          <div className="conversation-detail-comment-text">
-            <p>{jeffsum(4, 'sentences')}</p>
-          </div>
-        </div>
-        {/* Fourth Comment */}
-        <div className="conversation-detail-comments-card">
-          <div className="conversation-detail-user-icon">
-            <FontAwesomeIcon icon={faUserCircle} /> Agent
-          </div>
-          <div className="conversation-detail-comment-text">
-            <p>{jeffsum(4, 'sentences')}</p>
-          </div>
-        </div>
-      </div>
 
-      <div className="conversation-detail-comment-add">
-        <div className="conversation-detail-comment-add-textarea">
+        <hr />
+
+        <div className="conversation-detail-comments-box">
+          {convo.comments.map((e) => {
+            return (
+              <div className="conversation-detail-comments-card">
+                <div className="conversation-detail-user-icon">
+                  <FontAwesomeIcon icon={faUserCircle} /> {e.from}
+                </div>
+                <div className="conversation-detail-comment-text">
+                  <p>{e.body}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="conversation-detail-comment-add">
+          <div className="conversation-detail-comment-add-textarea">
             <h3>Add Comment</h3>
-          <input type='text'></input>
-        </div>
-        <div className="conversation-detail-comment-add-icon">
-          <FontAwesomeIcon icon={faPaperPlane} />
+            <input type="text"></input>
+          </div>
+          <div className="conversation-detail-comment-add-icon">
+            <FontAwesomeIcon icon={faPaperPlane} />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <h1>Loading..</h1>;
+  }
 }
