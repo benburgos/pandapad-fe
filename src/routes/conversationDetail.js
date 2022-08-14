@@ -1,6 +1,6 @@
 import './conversationDetail.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import jeffsum from 'jeffsum';
 
 export default function ConversationDetail() {
@@ -53,6 +53,16 @@ export default function ConversationDetail() {
           <div className="conversation-detail-comment-text">
             <p>{jeffsum(4, 'sentences')}</p>
           </div>
+        </div>
+      </div>
+
+      <div className="conversation-detail-comment-add">
+        <div className="conversation-detail-comment-add-textarea">
+            <h3>Add Comment</h3>
+          <input type='text'></input>
+        </div>
+        <div className="conversation-detail-comment-add-icon">
+          <FontAwesomeIcon icon={faPaperPlane} />
         </div>
       </div>
     </div>
