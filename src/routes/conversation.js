@@ -22,13 +22,13 @@ export default function Conversation() {
           </div>
 
           <div className="conversation-list-subject">
-            <Link to="/unavailable">
+            <Link to="/conversation/detail">
               <span>My stuff is on fire man!</span>
             </Link>
           </div>
 
           <div className="conversation-list-icon">
-            <Link to="/unavailable">
+            <Link to="/conversation/detail">
               <span>
                 <FontAwesomeIcon icon={faCommentDots} />
               </span>
@@ -45,13 +45,13 @@ export default function Conversation() {
           </div>
 
           <div className="conversation-list-subject">
-            <Link to="/unavailable">
+            <Link to="/conversation/detail">
               <span>My stuff is on fire man!</span>
             </Link>
           </div>
 
           <div className="conversation-list-icon">
-            <Link to="/unavailable">
+            <Link to="/conversation/detail">
               <span>
                 <FontAwesomeIcon icon={faCommentDots} />
               </span>
