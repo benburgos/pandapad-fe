@@ -30,7 +30,7 @@ export default function Navbar() {
       <Link to='/unavailable'>
       <FontAwesomeIcon icon={faIdCard} flip="horizontal" /> Profile
       </Link>
-      <div onClick={() => logout({ returnTo: window.location.origin })}>
+      <div className='logout-button' onClick={() => logout({ returnTo: window.location.origin })}>
       <FontAwesomeIcon icon={faSignInAlt} flip="horizontal" /> Logout
       </div>
     </nav>
