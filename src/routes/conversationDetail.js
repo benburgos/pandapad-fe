@@ -20,8 +20,7 @@ export default function ConversationDetail() {
       }
       getConvo();
     },
-    // eslint-disable-next-line
-    [body]
+    [convo, id]
   );
 
   let handleSubmit = async (e) => {
@@ -35,7 +34,6 @@ export default function ConversationDetail() {
           body: body,
         }),
       });
-      console.log(res.json())
       if (res.status === 200) {
         setBody('');
       }
