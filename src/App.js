@@ -10,6 +10,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
+        {/* Refer to index.js to add the login route */}
         <Route path="/" element={<Conversation />} />
         <Route path="/conversation" element={<Conversation />} />
         <Route path="/unavailable" element={<Unavailable />} />
