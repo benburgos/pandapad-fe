@@ -14,7 +14,6 @@ root.render(
       redirectUri={window.location.origin}
     >
       <Router>
-        {/* Add Login Route Here */}
         <App />
       </Router>
     </Auth0Provider>
