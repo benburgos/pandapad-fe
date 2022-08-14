@@ -6,32 +6,39 @@ import {
   faComment,
   faEnvelope,
   faPhone,
-  faIdCard
+  faIdCard,
 } from '@fortawesome/free-solid-svg-icons';
-import './nav.css'
+import './nav.css';
 
 export default function Navbar() {
-  const { logout } = useAuth0();
+  const { logout, user } = useAuth0();
 
   return (
-    <nav className='navbar'>
-        <img alt='pandapad-logo' src='https://www.freepnglogos.com/uploads/panda-png/panda-thomas-dafoe-studios-bare-bears-png-pack-3.png'/>
-      <Link to='/unavailable'>
-      <FontAwesomeIcon icon={faPhone} flip="horizontal" /> Talk
+    <nav className="navbar">
+      <img
+        alt="pandapad-logo"
+        src="https://www.freepnglogos.com/uploads/panda-png/panda-thomas-dafoe-studios-bare-bears-png-pack-3.png"
+      />
+      {user ? <h3>Hey, {user.given_name}!</h3> : <></>}
+      <Link to="/unavailable">
+        <FontAwesomeIcon icon={faPhone} flip="horizontal" /> Talk
       </Link>
-      <Link to='/unavailable'>
-      <FontAwesomeIcon icon={faEnvelope} flip="horizontal" /> Mail
+      <Link to="/unavailable">
+        <FontAwesomeIcon icon={faEnvelope} flip="horizontal" /> Mail
       </Link>
-      <div className='active-product'>
-      <Link to='/'>
-      <FontAwesomeIcon icon={faComment} flip="horizontal" /> Conversations
-      </Link>
+      <div className="active-product">
+        <Link to="/">
+          <FontAwesomeIcon icon={faComment} flip="horizontal" /> Conversations
+        </Link>
       </div>
-      <Link to='/unavailable'>
-      <FontAwesomeIcon icon={faIdCard} flip="horizontal" /> Profile
+      <Link to="/unavailable">
+        <FontAwesomeIcon icon={faIdCard} flip="horizontal" /> Profile
       </Link>
-      <div className='logout-button' onClick={() => logout({ returnTo: window.location.origin })}>
-      <FontAwesomeIcon icon={faSignInAlt} flip="horizontal" /> Logout
+      <div
+        className="logout-button"
+        onClick={() => logout({ returnTo: window.location.origin })}
+      >
+        <FontAwesomeIcon icon={faSignInAlt} flip="horizontal" /> Logout
       </div>
     </nav>
   );

@@ -8,6 +8,10 @@
   padding-top: 20px;
 }
 
+.navbar h3 {
+  color: #dad7cd;
+}
+
 .navbar a {
   text-decoration: none;
   padding: 10px;
