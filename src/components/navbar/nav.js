@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useAuth0 } from '@auth0/auth0-react';
 import {
   faSignInAlt,
   faComment,
@@ -10,6 +11,8 @@ import {
 import './nav.css'
 
 export default function Navbar() {
+  const { logout } = useAuth0();
+
   return (
     <nav className='navbar'>
         <img alt='pandapad-logo' src='https://www.freepnglogos.com/uploads/panda-png/panda-thomas-dafoe-studios-bare-bears-png-pack-3.png'/>
@@ -27,9 +30,9 @@ export default function Navbar() {
       <Link to='/unavailable'>
       <FontAwesomeIcon icon={faIdCard} flip="horizontal" /> Profile
       </Link>
-      <Link to='/unavailable'>
+      <div onClick={() => logout({ returnTo: window.location.origin })}>
       <FontAwesomeIcon icon={faSignInAlt} flip="horizontal" /> Logout
-      </Link>
+      </div>
     </nav>
   );
 }

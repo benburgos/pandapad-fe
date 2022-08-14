@@ -8,3 +8,42 @@ html {
   font-family: 'Thasadith', sans-serif;
   margin-top: 0;
 }
+
+.splash-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: black;
+  color: white;
+}
+
+.splash-page img {
+  height: 10%;
+}
+
+.splash-page button {
+  width: 15%;
+  margin-top: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: grey;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 3px white;
+}
+
+.splash-page button:hover {
+  background-color: rgb(100, 99, 99);
+}
+
+.splash-page button:active {
+  background-color: grey;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
