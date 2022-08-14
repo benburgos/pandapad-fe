@@ -50,16 +50,16 @@
 .conversation-list-user {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 5px;
-  padding-left: 20px;
-  width: 15%;
+  width: 20%;
 }
 
 .conversation-list-user svg {
   font-size: 30px;
   color: black;
+  margin-left: 60%;
 }
 
 .conversation-list-subject {
@@ -67,7 +67,7 @@
   flex-direction: row;
   align-items: center;
   padding-left: 10px;
-  width: 80%;
+  width: 75%;
 }
 
 .conversation-list-icon {
