@@ -47,7 +47,7 @@ export default function Conversation() {
               </div>
 
               <div className="conversation-list-icon">
-                <Link to="/conversation/detail">
+                <Link to={`/conversation/detail/${convo._id}`}>
                   <span>
                     <FontAwesomeIcon icon={faCommentDots} />
                   </span>
