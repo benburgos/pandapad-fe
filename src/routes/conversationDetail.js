@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import jeffsum from 'jeffsum';
 import './conversationDetail.css';
 
 export default function ConversationDetail() {
@@ -10,31 +11,41 @@ export default function ConversationDetail() {
   const { id } = useParams();
   const [convo, setConvo] = useState();
   const [body, setBody] = useState('');
+  let jeffText = jeffsum(3, 'sentences')
 
-  useEffect(
-    () => {
-      async function getConvo() {
-        const response = await fetch(`http://localhost:8000/tickets/${id}`);
-        const data = await response.json();
-        setConvo(data);
-      }
-      getConvo();
-    },
-    [convo, id]
-  );
+  useEffect(() => {
+    async function getConvo() {
+      const response = await fetch(`http://localhost:8000/tickets/${id}`);
+      const data = await response.json();
+      setConvo(data);
+    }
+    getConvo();
+  }, [convo, id]);
 
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch(`http://localhost:8000/tickets/edit?ticketId=${id}`, {
-        method: 'PUT',
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-          from: user.name,
-          body: body,
-        }),
-      });
+      let res = await fetch(
+        `http://localhost:8000/tickets/edit?ticketId=${id}`,
+        {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            from: user.name,
+            body: body,
+          }),
+        }
+      );
       if (res.status === 200) {
+        setBody('');
+        await fetch(`http://localhost:8000/tickets/edit?ticketId=${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            from: 'Jeff Goldblum',
+            body: jeffText,
+          }),
+        });
         setBody('');
       }
     } catch (err) {
