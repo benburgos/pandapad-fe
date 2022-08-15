@@ -1,17 +1,22 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import {
+  faUserCircle,
+  faPaperPlane,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import jeffsum from 'jeffsum';
 import './conversationDetail.css';
 
 export default function ConversationDetail() {
   const { user } = useAuth0();
   const { id } = useParams();
+  const navigate = useNavigate();
   const [convo, setConvo] = useState();
   const [body, setBody] = useState('');
-  let jeffText = jeffsum(3, 'sentences')
+  let jeffText = jeffsum(3, 'sentences');
 
   useEffect(() => {
     async function getConvo() {
@@ -53,6 +58,14 @@ export default function ConversationDetail() {
     }
   };
 
+  let handleSubmitDelete = (e) => {
+    e.preventDefault();
+    fetch(`http://localhost:8000/tickets/delete?ticketId=${convo._id}`, {
+      method: 'DELETE',
+    });
+    navigate('/')
+  };
+
   if (convo) {
     return (
       <div className="conversation-detail-box">
@@ -63,6 +76,17 @@ export default function ConversationDetail() {
           <div className="conversation-detail-subject">
             <span>{convo.body}</span>
           </div>
+          {user.name === 'Admin' ? (
+            <span>
+              <form onSubmit={handleSubmitDelete}>
+              <button type='submit'>
+                <FontAwesomeIcon icon={faTrash} />
+              </button>
+              </form>
+            </span>
+          ) : (
+            <></>
+          )}
         </div>
 
         <hr />

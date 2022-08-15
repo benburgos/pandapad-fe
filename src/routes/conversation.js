@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -23,9 +23,10 @@ export default function Conversation() {
       setConvoList(data);
     }
     getConvos();
-  }, []);
+  }, [convoList]);
 
   let handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       let res = await fetch(`http://localhost:8000/tickets/create`, {
         method: 'POST',
