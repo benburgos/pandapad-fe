@@ -6,6 +6,7 @@ import {
   faUserCircle,
   faPlusSquare,
 } from '@fortawesome/free-solid-svg-icons';
+import Popup from 'reactjs-popup';
 import './conversation.css';
 
 export default function Conversation() {
@@ -24,7 +25,23 @@ export default function Conversation() {
     <div className="conversation-box">
       <div className="header">
         <h2>Conversation List</h2>
-        <FontAwesomeIcon icon={faPlusSquare} />
+        <Popup trigger={<FontAwesomeIcon icon={faPlusSquare} />} modal>
+          {(close) => (
+            <div className="modal">
+              <button className="close" onClick={close}>
+                &times;
+              </button>
+              <div className="header"> New Ticket </div>
+              <div className="content">
+                <form>
+                  To: <input type="text"></input>
+                  Message Body: <input type="text"></input>
+                  <input type='submit'></input>
+                </form>
+              </div>
+            </div>
+          )}
+        </Popup>
       </div>
 
       <hr />
@@ -53,7 +70,6 @@ export default function Conversation() {
                   </span>
                 </Link>
               </div>
-              
             </div>
           );
         })}
