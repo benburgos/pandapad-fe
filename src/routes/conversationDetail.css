@@ -5,8 +5,21 @@
 }
 
 .conversation-detail-subject {
+  display: flex;
+  justify-content: space-between;
   font-size: large;
   font-style: italic;
+}
+
+.conversation-detail-subject button {
+  border: none;
+  background-color: #dad7cd;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.conversation-detail-subject svg {
+  font-size: 30px;
 }
 
 .conversation-detail-box hr {

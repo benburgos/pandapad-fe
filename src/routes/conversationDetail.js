@@ -75,7 +75,7 @@ export default function ConversationDetail() {
           </div>
           <div className="conversation-detail-subject">
             <span>{convo.body}</span>
-          </div>
+          
           {user.name === 'Admin' ? (
             <span>
               <form onSubmit={handleSubmitDelete}>
@@ -87,6 +87,7 @@ export default function ConversationDetail() {
           ) : (
             <></>
           )}
+          </div>
         </div>
 
         <hr />
