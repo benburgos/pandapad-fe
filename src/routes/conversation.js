@@ -65,12 +65,14 @@ export default function Conversation() {
                       type="text"
                       value={msgTo}
                       onChange={(e) => setMsgTo(e.target.value)}
+                      required
                     />
                     Message Body:{' '}
                     <input
                       type="text"
                       value={msgBody}
                       onChange={(e) => setMsgBody(e.target.value)}
+                      required
                     />
                     <input type="submit" />
                   </form>
