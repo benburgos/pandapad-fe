@@ -18,7 +18,7 @@ export default function Conversation() {
 
   useEffect(() => {
     async function getConvos() {
-      const response = await fetch('http://localhost:8000/tickets');
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}`);
       const data = await response.json();
       setConvoList(data);
     }
@@ -28,7 +28,7 @@ export default function Conversation() {
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch(`http://localhost:8000/tickets/create`, {
+      let res = await fetch(`${process.env.REACT_APP_BASE_URL}/create`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

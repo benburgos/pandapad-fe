@@ -20,7 +20,7 @@ export default function ConversationDetail() {
 
   useEffect(() => {
     async function getConvo() {
-      const response = await fetch(`http://localhost:8000/tickets/${id}`);
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/${id}`);
       const data = await response.json();
       setConvo(data);
     }
@@ -31,7 +31,7 @@ export default function ConversationDetail() {
     e.preventDefault();
     try {
       let res = await fetch(
-        `http://localhost:8000/tickets/edit?ticketId=${id}`,
+        `${process.env.REACT_APP_BASE_URL}/edit?ticketId=${id}`,
         {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
@@ -43,7 +43,7 @@ export default function ConversationDetail() {
       );
       if (res.status === 200) {
         setBody('');
-        await fetch(`http://localhost:8000/tickets/edit?ticketId=${id}`, {
+        await fetch(`${process.env.REACT_APP_BASE_URL}/edit?ticketId=${id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -60,7 +60,7 @@ export default function ConversationDetail() {
 
   let handleSubmitDelete = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:8000/tickets/delete?ticketId=${convo._id}`, {
+    fetch(`${process.env.REACT_APP_BASE_URL}/delete?ticketId=${convo._id}`, {
       method: 'DELETE',
     });
     navigate('/')
