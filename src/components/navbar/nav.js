@@ -19,7 +19,11 @@ export default function Navbar() {
         alt="pandapad-logo"
         src="https://www.freepnglogos.com/uploads/panda-png/panda-thomas-dafoe-studios-bare-bears-png-pack-3.png"
       />
-      {user ? <h3>Hey, {user.given_name}!</h3> : <></>}
+      {user ? (
+        <h3>Hey, {user.given_name ? user.given_name : user.name}!</h3>
+      ) : (
+        <></>
+      )}
       <Link to="/unavailable">
         <FontAwesomeIcon icon={faPhone} flip="horizontal" /> Talk
       </Link>
