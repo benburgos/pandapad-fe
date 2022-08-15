@@ -77,6 +77,11 @@
   width: 5%;
 }
 
+
+.popup-overlay {
+  background-color: gray;
+  opacity: 90%;
+}
 .popup-content {
   text-align: left;
   border: 1px solid black;
